@@ -1,6 +1,7 @@
 'use client'
 
 import { welcome } from "@/actions/home";
+import ModalTest from "@/components/modal/ModalTest";
 import Image from "next/image";
 import Link from 'next/link'
 
@@ -59,6 +60,9 @@ export default function Home() {
         <button onClick={() => welcome()}>Create</button>
         <Link href="/contact">contact</Link>
         <Link href="/post">post</Link>
+
+        <hr />
+        <ModalTest />
       </div>
 
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
