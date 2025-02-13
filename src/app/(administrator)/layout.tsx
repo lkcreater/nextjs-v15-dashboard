@@ -10,6 +10,7 @@ import "../globals.css";
 
 //-- import components
 import Header from "@/components/headers/Header";
+import NavMenubar from "@/components/nav-menubar/NavMenubar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +38,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
-        {children}
+
+        <NavMenubar />
+        
+        <main id="main" className="main">
+          {children}
+        </main>
 
         <Script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js" />
         <Script src="./assets/js/main.js" />
