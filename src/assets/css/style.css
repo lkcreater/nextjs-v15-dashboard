@@ -706,6 +706,10 @@ h6 {
   color: #899bbd;
 }
 
+.sidebar-nav .nav-content.collapse {
+  visibility: visible;
+}
+
 .sidebar-nav .nav-link:hover {
   color: #4154f1;
   background: #f6f9ff;
