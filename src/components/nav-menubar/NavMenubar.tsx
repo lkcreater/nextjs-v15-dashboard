@@ -1,3 +1,6 @@
+import Link from 'next/link'
+import { menu } from "./menu"
+import React from 'react'
 
 function NavMenubar() {
     return (
@@ -5,14 +8,43 @@ function NavMenubar() {
 
             <ul className="sidebar-nav" id="sidebar-nav">
 
-                <li className="nav-item">
-                    <a className="nav-link collapsed" href="index.html">
-                    <i className="bi bi-grid"></i>
-                    <span>Dashboard</span>
-                    </a>
-                </li>
+                {menu.map((group, idxGroup) => (
+                    <React.Fragment key={idxGroup}>
+                        {group?.title && <li className="nav-heading">{group?.title}</li>}
 
-                <li className="nav-item">
+                        {group?.menu?.map((item, idxItem) => (
+                            <li key={`${idxGroup}-${idxItem}`} className="nav-item">
+                                {(item?.items && item?.items?.length > 0) ? 
+                                    <>
+                                        <a className="nav-link collapsed" data-bs-target={`#sub-nav-${idxGroup}-${idxItem}`} data-bs-toggle="collapse" href="javascript:void(0);">
+                                            {item?.iconClass && <i className={item.iconClass}></i>}
+                                            <span>{item?.label}</span>
+                                            <i className="bi bi-chevron-down ms-auto"></i>
+                                        </a>
+
+                                        <ul id={`sub-nav-${idxGroup}-${idxItem}`} className="nav-content collapse" data-bs-parent="#sidebar-nav">
+                                            {item?.items?.map((subMenu, idxSub) => (
+                                                <li key={`${idxGroup}-${idxItem}-${idxSub}`} className="nav-item">
+                                                    <Link href={subMenu.link} >
+                                                        <i className="bi bi-circle"></i>
+                                                        <span>{subMenu?.label}</span>
+                                                    </Link>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </>
+                                : 
+                                <Link href={item.link} className="nav-link collapsed">
+                                    {item?.iconClass && <i className={item.iconClass}></i>}
+                                    <span>{item?.label}</span>
+                                </Link>
+                                }                               
+                            </li>
+                        ))}
+                    </React.Fragment>
+                ))}
+
+                {/* <li className="nav-item">
                     <a className="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                     <i className="bi bi-menu-button-wide"></i><span>Components</span><i className="bi bi-chevron-down ms-auto"></i>
                     </a>
@@ -231,7 +263,7 @@ function NavMenubar() {
                     <i className="bi bi-file-earmark"></i>
                     <span>Blank</span>
                     </a>
-                </li>
+                </li> */}
 
             </ul>
 
