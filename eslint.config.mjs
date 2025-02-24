@@ -13,6 +13,13 @@ const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
     rules: {
+      // "no-console": "warn",
+      // "eslint-comments/no-unused-disable": "off",
+      // "no-unused-expressions": "off",
+      // "@typescript-eslint/no-unused-expressions": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      // "@typescript-eslint/no-require-imports": "off",
+      // "unicorn/better-regex": "off",
       "@next/next/no-img-element": "off",
     },
   },
