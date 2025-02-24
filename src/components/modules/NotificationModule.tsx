@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link'
 import { Url } from 'next/dist/shared/lib/router/router';
+import Img from '../images/Img';
 
 export type TNotificationModule = 'notifications' | 'messages' | 'profile';
 
@@ -75,7 +76,7 @@ export const NotificationModule = {
       <>      
         <li className="message-item">
           <a href="#">
-              <img src="assets/img/messages-1.jpg" alt="" className="rounded-circle" />
+              <Img src="assets/img/messages-1.jpg" alt="" className="rounded-circle" />
               <div>
               <h4>Maria Hudson</h4>
               <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>

@@ -1,10 +1,11 @@
+import Img from "../images/Img"
 import { NotificationModule } from "../modules/NotificationModule"
 
 function NavProfile({ displayName, srcProfile, infoTitle }: { displayName: string, srcProfile?: string, infoTitle: string }) {
     return (
         <div>
             <a className="nav-link nav-profile d-flex align-items-center pe-0" href="javascript:void(0);" data-bs-toggle="dropdown">
-                {srcProfile && <img src={srcProfile} alt={displayName} className="rounded-circle" />}
+                {srcProfile && <Img src={srcProfile} alt={displayName} className="rounded-circle" />}
                 <span className="d-none d-md-block dropdown-toggle ps-2">{displayName}</span>
             </a>
 
